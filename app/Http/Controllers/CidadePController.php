@@ -9,7 +9,7 @@ class CidadePController extends Controller
 {
     public function index(){
        
-        $cidades = CidadeP::where('id','>',0)->limit(10)->get();
+        $cidades = CidadeP::where('id','>',0)->limit(20)->get();
 
         return view('cidadep/index',compact('cidades'));
     }

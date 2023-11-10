@@ -11,9 +11,9 @@
     compact="true"
     searchable="true"
     search_placeholder="Pesquisa.."
-    name="cidades-table"
-    :data="$cidades"
-    exclude_columns="id,uid,idestadop,dtlixo"
+    name="vpessoageral-table"
+    :data="$vpessoagerais"
+    include_columns="pessoacgc,pessoagruposbbcodigo,pessoadtcad,pessoaapelido,pessoanome"
     :action_icons="$action_icons"
     action_title="Acao"
     hover_effect="true"/>
@@ -30,12 +30,12 @@
 <script>
 sendMessage = (nome, uf) => {
     showModal('send-message');
-    domEl('.bw-send-message .modal-title').innerText = `Mensagem para ${nome} ${uf}`;
+    domEl('.bw-send-message .modal-title').innerText = `Mensagem para ${pessoanome} ${pessoaapelido}`;
 }
 
 deleteUser = (id, nome, uf) => {
     showModal('delete-user');
-    domEl('.bw-delete-user .title').innerText = `${nome} ${uf}`;
+    domEl('.bw-delete-user .title').innerText = `${pessoanome} ${pessoaapelido}`;
 }
 
 redirect = (url) => {

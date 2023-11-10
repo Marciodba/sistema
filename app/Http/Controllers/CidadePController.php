@@ -9,9 +9,23 @@ class CidadePController extends Controller
 {
     public function index(){
        
-        $cidades = CidadeP::where('id','>',0)->limit(20)->get();
+        $cidades = CidadeP::where('id','>',0)->limit(50)->get();
+      //  $cidades=[];
+      //  foreach ($cidadeps as $value){
+      //      $cidades[$value->id] = $value->nome; 
+     //       $cidades[$value->id] = $value->uf; 
+     //   }
 
-        return view('cidadep/index',compact('cidades'));
+     //   $cidades = collect($cidades);
+
+    $action_icons = [
+            "icon:chat-bubble-left | tip:send user a message | color:green | click:sendMessage('{nome}', '{uf}')",
+            "icon:pencil | click:redirect('/user/{id}')",
+            "icon:trash | color:red | click:deleteUser({id}, '{nome}', '{uf}')",
+        ];
+
+
+        return view('cidadep/index',compact(['cidades', 'action_icons']));
     }
 
     public function show(string | int $id)
@@ -76,6 +90,13 @@ class CidadePController extends Controller
         $cidadep->delete();
 
         return redirect()->route('cidadeP.index');
+    }
+
+    public function pesquisa($p_nome){
+
+        $cidades = CidadeP::where('nome','ilike',"%" .$p_nome. "%" )->limit(10)->get();
+
+        return view('cidadep/index',compact('cidades'));
     }
 
 }

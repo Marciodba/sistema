@@ -7,6 +7,7 @@ use App\Http\Controllers\CidadePController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VpessoaUsuarioController;
 use App\Http\Controllers\ProdutoFornecedorController;
+use App\Http\Controllers\VpessoaGeralController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/cidadep', [CidadePController::class, 'index'])->name('getCadastroPassagens');
+    Route::get('/getPessoaGeral', [VpessoaGeralController::class, 'index'])->name('getPessoaGeral');
+    Route::get('/getVenda', [CidadePController::class, 'index'])->name('getVenda');
+    Route::get('/getVendaBalcao', [CidadePController::class, 'index'])->name('getVendaBalcao');
+    Route::get('/getCaixa', [CidadePController::class, 'index'])->name('getCaixa');
+    Route::get('/getVendaReceberSangriaGrid', [CidadePController::class, 'index'])->name('getVendaReceberSangriaGrid');
+    Route::get('/alterarSenha', [CidadePController::class, 'index'])->name('alterarSenha');
+
     Route::get('/cidadep/create', [DadosVeiculoController::class, 'create'])->name('cidadep.create');
     Route::post('/cidadep', [DadosVeiculoController::class, 'store'])->name('cidadep.store');
 
@@ -40,6 +48,7 @@ Route::get('/cidadep/{id}', [DadosVeiculoController::class, 'show'])->name('cida
 Route::get('/cidadep/{id}/edit', [DadosVeiculoController::class, 'edit'])->name('cidadep.edit');
 Route::put('/cidadep/{id}', [DadosVeiculoController::class, 'update'])->name('cidadep.update');
 Route::delete('/cidadep/{id}', [DadosVeiculoController::class, 'destroy'])->name('cidadep.destroy');
+Route::get('/produtos/pesquisa',  [DadosVeiculoController::class, 'pesquisa']);
    
 
 

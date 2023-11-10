@@ -5,14 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CidadeP extends Model
+class VpessoaGeral extends Model
 {
     use HasFactory;
-    protected $table = 'public.cidadep';
+    protected $table = 'public.vpessoageral';
     public $timestamps = false;
     public $incrementing = false;
+
     protected $casts = [
-        'dtatualizacao' => 'datetime:d/m/Y H:i',
-        'dtlixo' => 'datetime:d/m/Y H:i',
+        'pessoadtatualizacao' => 'datetime:d/m/Y H:i',
+        'pessoadtcad' => 'datetime:d/m/Y H:i',
+        'pessoaddtlixo' => 'datetime:d/m/Y',
     ];
+    
 }

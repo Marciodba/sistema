@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\padrao\IdiomaDetalhePController;
 use App\Models\CidadeP;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,11 @@ class CidadePController extends Controller
      //   }
 
      //   $cidades = collect($cidades);
+     $idiomaDetalhePController = new IdiomaDetalhePController;
+     $column_aliases = $idiomaDetalhePController->ler('cidadep',true);
+      $mostra_coluna =  array_keys($column_aliases);
+      $mostra_coluna =  implode(',',$mostra_coluna);
+
 
     $action_icons = [
             "icon:chat-bubble-left | tip:send user a message | color:green | click:sendMessage('{nome}', '{uf}')",
@@ -25,7 +31,7 @@ class CidadePController extends Controller
         ];
 
 
-        return view('cidadep/index',compact(['action_icons','cidades']));
+        return view('cidadep/index',compact(['action_icons','cidades','column_aliases','mostra_coluna']));
     }
 
     public function show(string | int $id)

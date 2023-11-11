@@ -15,8 +15,9 @@
     search_placeholder="Pesquisa.."
     name="vpessoageral-table"
     :data="$vpessoagerais"
-    include_columns="pessoacgc,pessoagruposbbcodigo,pessoadtcad,pessoaapelido,pessoanome"
     :action_icons="$action_icons"
+    :column_aliases="$column_aliases"
+    :include_columns="$mostra_coluna"
     action_title="Acao"
     hover_effect="true"/>
 </div>

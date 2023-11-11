@@ -13,12 +13,12 @@
     search_placeholder="Pesquisa.."
     name="cidades-table"
     :data="$cidades"
-    exclude_columns="id,uid,idestadop,dtlixo"
     :action_icons="$action_icons"
+    :column_aliases="$column_aliases"
+    :include_columns="$mostra_coluna"
     action_title="Acao"
     hover_effect="true"
     />
-
     <x-bladewind::modal name="send-message" title="">
         <div class="mb-6">Alterar Mensagem</div>
         <x-bladewind::textarea placeholder="Enviar mensagem.." rows="5" />

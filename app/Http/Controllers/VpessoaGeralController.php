@@ -4,19 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\VpessoaGeral;
 use Illuminate\Http\Request;
+use App\Http\Controllers\padrao\IdiomaDetalhePController;
 
 class VpessoaGeralController extends Controller
 {
     public function index(){
        
         $vpessoagerais = VpessoaGeral::where('pessoaid','>',0)->limit(50)->get();
-      //  $cidades=[];
-      //  foreach ($cidadeps as $value){
-      //      $cidades[$value->id] = $value->nome; 
-     //       $cidades[$value->id] = $value->uf; 
-     //   }
-
-     //   $cidades = collect($cidades);
+        $idiomaDetalhePController = new IdiomaDetalhePController;
+        $column_aliases = $idiomaDetalhePController->ler('vpessoageral',true);
+         $mostra_coluna =  array_keys($column_aliases);
+         $mostra_coluna =  implode(',',$mostra_coluna);
 
     $action_icons = [
             "icon:chat-bubble-left | tip:send user a message | color:green | click:sendMessage('{pessoanome}', '{pessoaapelido}')",
@@ -25,6 +23,6 @@ class VpessoaGeralController extends Controller
         ];
 
 
-        return view('vpessoageral/index',compact(['vpessoagerais', 'action_icons']));
+        return view('vpessoageral/index',compact(['vpessoagerais', 'action_icons','column_aliases','mostra_coluna']));
     }
 }

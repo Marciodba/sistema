@@ -16,6 +16,21 @@ class VpessoaGeral extends Model
         'pessoadtatualizacao' => 'datetime:d/m/Y H:i',
         'pessoadtcad' => 'datetime:d/m/Y H:i',
         'pessoaddtlixo' => 'datetime:d/m/Y',
+
     ];
+
+
+  
+    public function confirmado()
+    {
+        if ( $this->pessoaativo == 1 ){
+            return "Ativo";
+        }else{
+            return "Inativo";
+        }
+
+    }
     
+
+  
 }

@@ -25,7 +25,7 @@ class CidadePController extends Controller
         ];
 
 
-        return view('cidadep/index',compact(['cidades', 'action_icons']));
+        return view('cidadep/index',compact(['action_icons','cidades']));
     }
 
     public function show(string | int $id)

@@ -2,7 +2,7 @@
 <link href="{{ asset('vendor/bladewind/css/bladewind-ui.min.css') }}" rel="stylesheet" />
 <script src="{{ asset('vendor/bladewind/js/helpers.js') }}"></script>
 <script src="//unpkg.com/alpinejs" defer></script>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
     <x-bladewind::table
     striped="true"
     divided="true"
@@ -16,7 +16,8 @@
     exclude_columns="id,uid,idestadop,dtlixo"
     :action_icons="$action_icons"
     action_title="Acao"
-    hover_effect="true"/>
+    hover_effect="true"
+    />
 
     <x-bladewind::modal name="send-message" title="">
         <div class="mb-6">Alterar Mensagem</div>

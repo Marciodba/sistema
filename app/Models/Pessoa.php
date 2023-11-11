@@ -12,5 +12,9 @@ class Pessoa extends Model
     public $timestamps = false;
     public $incrementing = false;
 
+    public function usuario(){
+        return $this->hasOne('App\Models\User', 'email', 'apelido');
+    }
+
 
 }

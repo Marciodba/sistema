@@ -2,7 +2,9 @@
 <link href="{{ asset('vendor/bladewind/css/bladewind-ui.min.css') }}" rel="stylesheet" />
 <script src="{{ asset('vendor/bladewind/js/helpers.js') }}"></script>
 <script src="//unpkg.com/alpinejs" defer></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<div style="overflow-x:auto;">
     <x-bladewind::table
     striped="true"
     divided="true"
@@ -17,7 +19,7 @@
     :action_icons="$action_icons"
     action_title="Acao"
     hover_effect="true"/>
-
+</div>
     <x-bladewind::modal name="send-message" title="">
         <div class="mb-6">Alterar Mensagem</div>
         <x-bladewind::textarea placeholder="Enviar mensagem.." rows="5" />

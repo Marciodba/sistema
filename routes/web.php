@@ -34,6 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/produtopreco', [VprodutoController::class, 'index'])->name('getCadastroPassagens');
+    Route::get('/produtopreco/{id}/edit', [VprodutoController::class, 'edit'])->name('produtopreco.edit');
+    Route::put('/produtopreco/{id}', [VprodutoController::class, 'update'])->name('produtopreco.update');
+
     Route::get('/getPessoaGeral', [VpessoaGeralController::class, 'index'])->name('getPessoaGeral');
     Route::get('/getVenda', [CidadePController::class, 'index'])->name('getVenda');
     Route::get('/getVendaBalcao', [CidadePController::class, 'index'])->name('getVendaBalcao');

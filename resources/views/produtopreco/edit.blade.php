@@ -1,11 +1,11 @@
 
-<h1>Alterar Vistória {{ $cidade->id}}</h1>
+<h1>Alterar Vistória </h1>
 <x-alert/>
-<form action="{{route('cidade.update',$cidade->id)}}" method="POST">
+<form action="{{route('produtopreco.update',6)}}" method="POST">
 
 @method('put')
-@include('cidade.partials.form',[
-    'cidade'=>$cidade
+@include('produtopreco.partials.form',[
+    'produtopreco'=>$produtopreco
 ])
 
 </form>

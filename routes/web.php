@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VpessoaUsuarioController;
 use App\Http\Controllers\ProdutoFornecedorController;
 use App\Http\Controllers\VpessoaGeralController;
+use App\Http\Controllers\VprodutoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/cidadep', [CidadePController::class, 'index'])->name('getCadastroPassagens');
+    Route::get('/produtopreco', [VprodutoController::class, 'index'])->name('getCadastroPassagens');
     Route::get('/getPessoaGeral', [VpessoaGeralController::class, 'index'])->name('getPessoaGeral');
     Route::get('/getVenda', [CidadePController::class, 'index'])->name('getVenda');
     Route::get('/getVendaBalcao', [CidadePController::class, 'index'])->name('getVendaBalcao');
@@ -45,8 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/getCaixaUnicoLinhaVeiculo', [CidadePController::class, 'index'])->name('getCaixaUnicoLinhaVeiculo');
     Route::get('/getVeiculo', [CidadePController::class, 'index'])->name('getVeiculo');
     Route::get('/getCargaVeiculomulta', [CidadePController::class, 'index'])->name('getCargaVeiculomulta');
-    Route::get('/getCargaVeiculomulta', [CidadePController::class, 'index'])->name('getCargaVeiculomulta');
-    Route::get('/getVApuraOsCmSys', [CidadePController::class, 'index'])->name('getVApuraOsCmSys');
+        Route::get('/getVApuraOsCmSys', [CidadePController::class, 'index'])->name('getVApuraOsCmSys');
     Route::get('/getEscala', [CidadePController::class, 'index'])->name('getEscala');  
     Route::get('/getCadastroGrupo', [CidadePController::class, 'index'])->name('getCadastroGrupo');    
     Route::get('/getCadastroItinerario', [CidadePController::class, 'index'])->name('getCadastroItinerario'); 

@@ -10,22 +10,25 @@ use Illuminate\Support\Facades\DB;
 
 class ProdutoFornecedorController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
-        $produtoFornecedors = ProdutoFornecedor::with(['pessoa','produto','endereco'=> function($query){
+        $produtoFornecedors = ProdutoFornecedor::with(['pessoa', 'produto', 'endereco' => function ($query) {
             $query->whereNotNull(['observacao']);
-        }])->where('padrao',true)->limit(500)->get();
+        }])->where('padrao', true)->limit(500)->get();
+        $img_icones = [];
+        if (!empty($produtoFornecedorss[0])) {
 
 
-        $icones =$produtoFornecedors[0]->pessoa->pluck('apelido');
-       
-        $arqFisicos = ArqFisicoCli::select(DB::RAW("encode(arqfoto, 'base64') as imagem,codnome"))->whereIn('codnome', $icones)->get();
-        $img_icones=[];
-        foreach ($arqFisicos as $arqFisico) {
-      
-            $img_icones[$arqFisico->codnome] = $arqFisico->imagem;
+            $icones = $produtoFornecedors[0]->pessoa->pluck('apelido');
+
+            $arqFisicos = ArqFisicoCli::select(DB::RAW("encode(arqfoto, 'base64') as imagem,codnome"))->whereIn('codnome', $icones)->get();
+     
+            foreach ($arqFisicos as $arqFisico) {
+
+                $img_icones[$arqFisico->codnome] = $arqFisico->imagem;
+            }
         }
-    
-        return view('welcome',compact('produtoFornecedors','img_icones'));
+        return view('welcome', compact('produtoFornecedors', 'img_icones'));
     }
 }

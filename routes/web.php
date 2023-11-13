@@ -71,7 +71,26 @@ Route::middleware('auth')->group(function () {
     Route::get('/monitorLog', [CidadePController::class, 'index'])->name('monitorLog');
     Route::get('/getApuracaoLogUsuario', [CidadePController::class, 'index'])->name('getApuracaoLogUsuario');
     Route::get('/getTravaSistema', [CidadePController::class, 'index'])->name('getTravaSistema');
-
+    Route::get('/setarMensagemLoginUsuario', [CidadePController::class, 'index'])->name('setarMensagemLoginUsuario');
+    Route::get('/getMensagemInstantanea', [CidadePController::class, 'index'])->name('getMensagemInstantanea');
+    Route::get('/getCV', [CidadePController::class, 'index'])->name('getCV');
+    Route::get('/getCadastroFornecedor', [CidadePController::class, 'index'])->name('getCadastroFornecedor');
+    Route::get('/getPessoaProdutoVidaValidador', [CidadePController::class, 'index'])->name('getPessoaProdutoVidaValidador');
+    Route::get('/getRecadoGrupo', [CidadePController::class, 'index'])->name('getRecadoGrupo');
+    Route::get('/getCadastroPessoaCliente', [CidadePController::class, 'index'])->name('getCadastroPessoaCliente');
+    Route::get('/getCadastroPessoaRamo', [CidadePController::class, 'index'])->name('getCadastroPessoaRamo');
+    Route::get('/getOS', [CidadePController::class, 'index'])->name('getOS');
+    Route::get('/getVendaReceberCanceladoGrid', [CidadePController::class, 'index'])->name('getVendaReceberCanceladoGrid');
+    Route::get('/getMenu', [CidadePController::class, 'index'])->name('getMenu');
+    Route::get('/getVApuraPesquisa', [CidadePController::class, 'index'])->name('getVApuraPesquisa');
+    Route::get('/getPerguntaResposta', [CidadePController::class, 'index'])->name('getPerguntaResposta');
+    Route::get('/getVConsultaKM', [CidadePController::class, 'index'])->name('getVConsultaKM');
+    Route::get('/getVidaUtil', [CidadePController::class, 'index'])->name('getVidaUtil');
+    Route::get('/getVendaReceberGrid', [CidadePController::class, 'index'])->name('getVendaReceberGrid');
+    Route::get('/getCargaMeiaViagem', [CidadePController::class, 'index'])->name('getCargaMeiaViagem');
+    Route::get('/getCargaSpTrans', [CidadePController::class, 'index'])->name('getCargaSpTrans');
+    Route::get('/getVApuraPesquisa', [CidadePController::class, 'index'])->name('getVApuraPesquisa');
+    Route::get('/getVApuraPesquisa', [CidadePController::class, 'index'])->name('getVApuraPesquisa');
 
     Route::get('/cidadep/create', [DadosVeiculoController::class, 'create'])->name('cidadep.create');
     Route::post('/cidadep', [DadosVeiculoController::class, 'store'])->name('cidadep.store');

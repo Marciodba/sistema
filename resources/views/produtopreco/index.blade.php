@@ -3,6 +3,8 @@
 <script src="{{ asset('vendor/bladewind/js/helpers.js') }}"></script>
 <script src="//unpkg.com/alpinejs" defer></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div style="overflow-x:auto;">
     <x-bladewind::table
     striped="true"
     divided="true"
@@ -11,14 +13,14 @@
     compact="true"
     searchable="true"
     search_placeholder="Pesquisa.."
-    name="cidades-table"
-    :data="$cidades"
+    name="produtopreco-table"
+    :data="$produtoprecos"
     :action_icons="$action_icons"
     :column_aliases="$column_aliases"
     :include_columns="$mostra_coluna"
     action_title="Acao"
-    hover_effect="true"
-    />
+    hover_effect="true"/>
+</div>
     <x-bladewind::modal name="send-message" title="">
         <div class="mb-6">Alterar Mensagem</div>
         <x-bladewind::textarea placeholder="Enviar mensagem.." rows="5" />
@@ -31,12 +33,12 @@
 <script>
 sendMessage = (nome, uf) => {
     showModal('send-message');
-    domEl('.bw-send-message .modal-title').innerText = `Mensagem para ${nome} ${uf}`;
+    domEl('.bw-send-message .modal-title').innerText = `Mensagem para ${produtonome} ${produtocodigo}`;
 }
 
 deleteUser = (id, nome, uf) => {
     showModal('delete-user');
-    domEl('.bw-delete-user .title').innerText = `${nome} ${uf}`;
+    domEl('.bw-delete-user .title').innerText = `${produtonome} ${produtocodigo}`;
 }
 
 redirect = (url) => {

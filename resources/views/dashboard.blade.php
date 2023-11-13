@@ -18,10 +18,10 @@
                         <div class="content-modulos">
                             @foreach($vpessoaUsuarios as $vpessoaUsuario)
                             <div class="content-modulo">
-                                <a href="{{ route('getCadastroPassagens')}}"> <img src="data:image/png;base64,{{ $img_icones[$vpessoaUsuario->icone]}}"  width="48" height="48"
+                                <a href="{{ route($vpessoaUsuario->funcao)}}"> <img src="data:image/png;base64,{{ $img_icones[$vpessoaUsuario->icone]}}"  width="48" height="48"
                                     ></a>
                                     <span> {{$vpessoaUsuario->nome_menu}}</span>
-                                    <span> {{$vpessoaUsuario->funcao}}</span>
+                                    <span> </span>
                                 </a>
                             </div>
                             @endforeach

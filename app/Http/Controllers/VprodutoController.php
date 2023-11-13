@@ -7,11 +7,12 @@ use App\Models\ProdutoPreco;
 use Illuminate\Http\Request;
 use App\Models\ProdutoGruposbb;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
 use App\Http\Controllers\padrao\IdiomaDetalhePController;
 
 class VprodutoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $idiomaDetalhePController = new IdiomaDetalhePController;
         $column_aliases = $idiomaDetalhePController->lerDicionario(['produto', 'produtopreco','produtogruposbb'], true);
@@ -61,8 +62,7 @@ class VprodutoController extends Controller
        'produtopreco.preco as produtoprecopreco' ,
        'produtopreco.qtde as produtoprecoqtde')->Join('produto', 'produto.id', '=', 'produtopreco.idproduto')
         ->Join('produtogruposbb', 'produtogruposbb.id', '=', 'produto.idgruposbb')
-      ->where('produto.id', '>', 0)->limit(10)->get();
-
+      ->where('produto.id', '>', 0)->limit(20)->get();
     
         $action_icons = [];
 

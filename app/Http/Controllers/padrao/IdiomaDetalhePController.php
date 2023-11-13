@@ -23,7 +23,7 @@ class IdiomaDetalhePController extends Controller
         $IdiomaDetalhePs = IdiomaDetalheP::whereIn('tabela',$tabelas)->where('mostra',true)->orderBy('ordem')->get();
         $column_aliases=[];
         foreach ($IdiomaDetalhePs  as $value){
-            $column_aliases [$value->coluna] =$value->colunausa;
+            $column_aliases [$value->tabela.$value->coluna] =$value->colunausa;
        } 
        
         return $column_aliases;

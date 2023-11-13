@@ -12,14 +12,20 @@ class PessoaController extends Controller
     public function cadastrarUsuario()
     {
         $pessoas = Pessoa::with(['usuario'])->get();
+   
         foreach ($pessoas as $pessoa) {
             if (empty($pessoa->usuario)) {
-                    
-
+                $email =   $pessoa->apelido;
+               if (!str_contains( $email, '@')) {
+                    $email=$email .'@EMAIL';
+                }
+              
                 $user = User::create([
                     'name' => $pessoa->nome,
-                    'email' => $pessoa->apelido,
+                    'email' => $email,
                     'password' => Hash::make( $pessoa->senha),
+                    'idpessoa' => $pessoa->id,
+
                 ]);
             }
         }

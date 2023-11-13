@@ -33,12 +33,12 @@
 <script>
 sendMessage = (nome, uf) => {
     showModal('send-message');
-    domEl('.bw-send-message .modal-title').innerText = `Mensagem para ${produto.nome} ${produto.codigo}`;
+    domEl('.bw-send-message .modal-title').innerText = `Mensagem para ${produtonome} ${produtocodigo}`;
 }
 
 deleteUser = (id, nome, uf) => {
     showModal('delete-user');
-    domEl('.bw-delete-user .title').innerText = `${produto.nome} ${produto.codigo}`;
+    domEl('.bw-delete-user .title').innerText = `${produtonome} ${produtocodigo}`;
 }
 
 redirect = (url) => {

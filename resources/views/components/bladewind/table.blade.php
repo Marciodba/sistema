@@ -48,7 +48,6 @@
     $icons_array = [];
 
     if (!empty($data)) {
-        
         $data = (!is_array($data)) ? json_decode(str_replace('&quot;', '"', $data), true) : $data;
         $total_records = count($data);
         $table_headings = ($total_records > 1) ? array_keys((array) $data[0]) : [];

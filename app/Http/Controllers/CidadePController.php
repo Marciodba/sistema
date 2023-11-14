@@ -26,8 +26,6 @@ class CidadePController extends Controller
 
     $action_icons = [
             "icon:chat-bubble-left | tip:send user a message | color:green | click:sendMessage('{nome}', '{uf}')",
-            "icon:pencil | click:redirect('/user/{id}')",
-            "icon:trash | color:red | click:deleteUser({id}, '{nome}', '{uf}')",
         ];
 
 

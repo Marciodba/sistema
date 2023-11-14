@@ -19,19 +19,26 @@
     action_title="Acao"
     hover_effect="true"
     />
-    <x-bladewind::modal name="send-message" title="">
-        <div class="mb-6">Alterar Mensagem</div>
-        <x-bladewind::textarea placeholder="Enviar mensagem.." rows="5" />
-    </x-bladewind::modal>
+
     
-    <x-bladewind::modal name="delete-user" type="error" title="Confirma Exclusão">
-        Apagar Registro <b class="title"></b>?
-       
-    </x-bladewind::modal>
+    <x-bladewind.button onclick="showModal('info')">
+        Info Modal
+    </x-bladewind.button>
+    
+    <x-bladewind.modal
+        type="info"
+        title="General Info"
+        name="info">
+        We really think you should buy some Bitcoin
+        despite it's ups and dowms. What sayeth thou?
+    </x-bladewind.modal>
+    
+    
+ 
 <script>
 sendMessage = (nome, uf) => {
-    showModal('send-message');
-    domEl('.bw-send-message .modal-title').innerText = `Mensagem para ${nome} ${uf}`;
+    showModal('info');
+    ${nome} ${uf};
 }
 
 deleteUser = (id, nome, uf) => {

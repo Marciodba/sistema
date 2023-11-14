@@ -38,6 +38,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/produtopreco/{id}', [VprodutoController::class, 'update'])->name('produtopreco.update');
 
     Route::get('/getPessoaGeral', [VpessoaGeralController::class, 'index'])->name('getPessoaGeral');
+    Route::get('/vpessoageral/{id}/edit', [VpessoaGeralController::class, 'edit'])->name('vpessoageral.edit');
+    Route::put('/vpessoageral/{id}', [VpessoaGeralController::class, 'update'])->name('vpessoageral.update');
+    
     Route::get('/getVenda', [CidadePController::class, 'index'])->name('getVenda');
     Route::get('/getVendaBalcao', [CidadePController::class, 'index'])->name('getVendaBalcao');
     Route::get('/getCaixa', [CidadePController::class, 'index'])->name('getCaixa');
@@ -91,6 +94,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/getCargaSpTrans', [CidadePController::class, 'index'])->name('getCargaSpTrans');
     Route::get('/getVApuraPesquisa', [CidadePController::class, 'index'])->name('getVApuraPesquisa');
     Route::get('/getVApuraPesquisa', [CidadePController::class, 'index'])->name('getVApuraPesquisa');
+    Route::get('/getRecadoCanalComunicacao', [CidadePController::class, 'index'])->name('getRecadoCanalComunicacao');
+    
 
     Route::get('/cidadep/create', [DadosVeiculoController::class, 'create'])->name('cidadep.create');
     Route::post('/cidadep', [DadosVeiculoController::class, 'store'])->name('cidadep.store');

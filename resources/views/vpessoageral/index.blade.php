@@ -21,19 +21,12 @@
     action_title="Acao"
     hover_effect="true"/>
 </div>
-    <x-bladewind::modal name="send-message" title="">
-        <div class="mb-6">Alterar Mensagem</div>
-        <x-bladewind::textarea placeholder="Enviar mensagem.." rows="5" />
-    </x-bladewind::modal>
-    
-    <x-bladewind::modal name="delete-user" type="error" title="Confirma Exclusão">
-        Apagar Registro <b class="title"></b>?
-       
-    </x-bladewind::modal>
+   
 <script>
-sendMessage = (nome, uf) => {
-    showModal('send-message');
-    domEl('.bw-send-message .modal-title').innerText = `Mensagem para ${pessoanome} ${pessoaapelido}`;
+modalEdit = (pessoanome) => {
+    alert(pessoanome);
+
+   
 }
 
 deleteUser = (id, nome, uf) => {

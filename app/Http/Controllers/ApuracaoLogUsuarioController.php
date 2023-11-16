@@ -28,10 +28,10 @@ class ApuracaoLogUsuarioController extends Controller
         $apuracaoLogUsuario = new ApuracaoLogUsuario;
 
         $apuracaoLogUsuario->acao = $entrada;
-        $apuracaoLogUsuario->stringserial = $entrada . ' ' . $loguser;
-        $apuracaoLogUsuario->stringserialnovo = $entrada . ' ' . $loguser;
+        $apuracaoLogUsuario->stringserial = $entrada . ' ' . $loguser .' '. Auth::user()->email;
+        $apuracaoLogUsuario->stringserialnovo = $entrada . ' ' . $loguser .' '. Auth::user()->email;
         $apuracaoLogUsuario->bean = 'PRINCIPAL';
-        $apuracaoLogUsuario->descricao = 'CONTROLE DE ENTRADA E SAIDA';
+        $apuracaoLogUsuario->descricao = 'CONTROLE DE ENTRADA E SAIDA ';
         $apuracaoLogUsuario->dtlog = now();
         $apuracaoLogUsuario->dtatualizacao = now();
         $apuracaoLogUsuario->idpessoa = $pessoa->id;

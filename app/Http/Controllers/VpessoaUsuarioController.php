@@ -13,7 +13,7 @@ class VpessoaUsuarioController extends Controller
     //
     public function index(VpessoaUsuario $vpessoaUsuario){
 
-        $vpessoaUsuarios = $vpessoaUsuario->where('idpessoausuario',Auth::user()->idpessoa)->get();
+        $vpessoaUsuarios = $vpessoaUsuario->where('apelido',Auth::user()->email)->get();
        
        $icones = $vpessoaUsuarios->pluck('icone');
       

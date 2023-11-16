@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/getPessoaGeral', [VpessoaGeralController::class, 'index'])->name('getPessoaGeral');
     Route::get('/vpessoageral/{id}/edit', [VpessoaGeralController::class, 'edit'])->name('vpessoageral.edit');
-    Route::put('/vpessoageral/{id}', [VpessoaGeralController::class, 'update'])->name('vpessoageral.update');
+    Route::get('/vpessoageral/{id}', [VpessoaGeralController::class, 'update'])->name('vpessoageral.update');
     
     Route::get('/getVenda', [CidadePController::class, 'index'])->name('getVenda');
     Route::get('/getVendaBalcao', [CidadePController::class, 'index'])->name('getVendaBalcao');

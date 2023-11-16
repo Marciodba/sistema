@@ -13,6 +13,9 @@ class Pessoa extends Model
     public $incrementing = false;
 
     public function usuario(){
+        return $this->hasOne('App\Models\User', 'email', 'apelido');
+    }
+    public function usuarioPessoa(){
         return $this->hasOne('App\Models\User', 'idpessoa', 'id');
     }
 

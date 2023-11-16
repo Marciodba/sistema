@@ -6,7 +6,7 @@
 @csrf
 <x-bladewind::modal
     backdrop_can_close="false"
-    name="form-mode"
+    name="formmode"
     ok_button_action="saveProfile()"
     ok_button_label="Update"
     close_after_action="false"

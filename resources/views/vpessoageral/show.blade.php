@@ -1,4 +1,5 @@
 <div id="cabecalho">
+    @csrf
     <img src="{!! asset('https://drive.google.com/file/d/12vTFBrMZ5hGyLFTTf5ielwlGOmoK-Sfr/view?usp=sharing') !!}">
     <h1>Vistória  {{ $cidade->id}}</h1>
     <h1>Data que foi gerado {{ date( 'd/m/Y' , strtotime($cidade->dtatualizacao))}}</h1></div>

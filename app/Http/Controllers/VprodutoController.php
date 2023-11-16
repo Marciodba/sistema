@@ -13,6 +13,14 @@ use App\Http\Controllers\padrao\IdiomaDetalhePController;
 
 class VprodutoController extends Controller
 {
+    private $filtro;
+    private $filtrousuario;
+    public function __construct()
+    {
+        $menuSbbConfigController = new MenuSbbConfigController;
+       
+    }
+
     public function index(Request $request)
     {
         $idiomaDetalhePController = new IdiomaDetalhePController;

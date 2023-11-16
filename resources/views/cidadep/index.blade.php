@@ -3,6 +3,7 @@
 <script src="{{ asset('vendor/bladewind/js/helpers.js') }}"></script>
 <script src="//unpkg.com/alpinejs" defer></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<x-bladewind.button size="small">{{$titulo}}r</x-bladewind.button>
     <x-bladewind::table
     striped="true"
     divided="true"

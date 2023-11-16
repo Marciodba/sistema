@@ -33,34 +33,34 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/produtopreco', [VprodutoController::class, 'index'])->name('getCadastroPassagens');
+    Route::get('/produtopreco/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [VprodutoController::class, 'index'])->name('getCadastroPassagens');
     Route::get('/produtopreco/{id}/edit', [VprodutoController::class, 'edit'])->name('produtopreco.edit');
     Route::put('/produtopreco/{id}', [VprodutoController::class, 'update'])->name('produtopreco.update');
 
-    Route::get('/getPessoaGeral', [VpessoaGeralController::class, 'index'])->name('getPessoaGeral');
+    Route::get('/getPessoaGeral/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [VpessoaGeralController::class, 'index'])->name('getPessoaGeral');
     Route::get('/vpessoageral/{id}/edit', [VpessoaGeralController::class, 'edit'])->name('vpessoageral.edit');
     Route::get('/vpessoageral/{id}', [VpessoaGeralController::class, 'update'])->name('vpessoageral.update');
     
-    Route::get('/getVenda', [CidadePController::class, 'index'])->name('getVenda');
+    Route::get('/getVenda/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getVenda');
     Route::get('/getVendaBalcao', [CidadePController::class, 'index'])->name('getVendaBalcao');
-    Route::get('/getCaixa', [CidadePController::class, 'index'])->name('getCaixa');
+    Route::get('/getCaixa/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getCaixa');
     Route::get('/getVendaReceberSangriaGrid', [CidadePController::class, 'index'])->name('getVendaReceberSangriaGrid');
-    Route::get('/alterarSenha', [CidadePController::class, 'index'])->name('alterarSenha');
-    Route::get('/getCadastroUnidade', [CidadePController::class, 'index'])->name('getCadastroUnidade');
-    Route::get('/getCadastroEstado', [CidadePController::class, 'index'])->name('getCadastroEstado');
-    Route::get('/getCadastroIpi', [CidadePController::class, 'index'])->name('getCadastroIpi');
-    Route::get('/getCaixaUnicoLinhaVeiculo', [CidadePController::class, 'index'])->name('getCaixaUnicoLinhaVeiculo');
-    Route::get('/getVeiculo', [CidadePController::class, 'index'])->name('getVeiculo');
-    Route::get('/getCargaVeiculomulta', [CidadePController::class, 'index'])->name('getCargaVeiculomulta');
-        Route::get('/getVApuraOsCmSys', [CidadePController::class, 'index'])->name('getVApuraOsCmSys');
-    Route::get('/getEscala', [CidadePController::class, 'index'])->name('getEscala');  
-    Route::get('/getCadastroGrupo', [CidadePController::class, 'index'])->name('getCadastroGrupo');    
-    Route::get('/getCadastroItinerario', [CidadePController::class, 'index'])->name('getCadastroItinerario'); 
+    Route::get('/alterarSenha/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('alterarSenha');
+    Route::get('/getCadastroUnidade/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getCadastroUnidade');
+    Route::get('/getCadastroEstado/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getCadastroEstado');
+    Route::get('/getCadastroIpi/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getCadastroIpi');
+    Route::get('/getCaixaUnicoLinhaVeiculo/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getCaixaUnicoLinhaVeiculo');
+    Route::get('/getVeiculo/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getVeiculo');
+    Route::get('/getCargaVeiculomulta/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getCargaVeiculomulta');
+        Route::get('/getVApuraOsCmSys/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getVApuraOsCmSys');
+    Route::get('/getEscala/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getEscala');  
+    Route::get('/getCadastroGrupo/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getCadastroGrupo');    
+    Route::get('/getCadastroItinerario/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getCadastroItinerario'); 
     Route::get('/getApuraOperacao', [CidadePController::class, 'index'])->name('getApuraOperacao'); 
-    Route::get('/getComprasSolicitacao', [CidadePController::class, 'index'])->name('getComprasSolicitacao');
-    Route::get('/getCompra', [CidadePController::class, 'index'])->name('getCompra'); 
-    Route::get('/getRecadoChamado', [CidadePController::class, 'index'])->name('getRecadoChamado'); 
-    Route::get('/getPessoaTipo', [CidadePController::class, 'index'])->name('getPessoaTipo'); 
+    Route::get('/getComprasSolicitacao/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getComprasSolicitacao');
+    Route::get('/getCompra/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getCompra'); 
+    Route::get('/getRecadoChamado/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getRecadoChamado'); 
+    Route::get('/getPessoaTipo/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getPessoaTipo'); 
     Route::get('/getconsultaVeiculoPortaria', [CidadePController::class, 'index'])->name('getconsultaVeiculoPortaria'); 
     Route::get('/getArq', [CidadePController::class, 'index'])->name('getArq'); 
     Route::get('/getPonto', [CidadePController::class, 'index'])->name('getPonto'); 
@@ -96,16 +96,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/getVApuraPesquisa', [CidadePController::class, 'index'])->name('getVApuraPesquisa');
     Route::get('/getRecadoCanalComunicacao', [CidadePController::class, 'index'])->name('getRecadoCanalComunicacao');
     
-
-    Route::get('/cidadep/create', [DadosVeiculoController::class, 'create'])->name('cidadep.create');
-    Route::post('/cidadep', [DadosVeiculoController::class, 'store'])->name('cidadep.store');
-
-Route::get('/cidadep/{id}', [DadosVeiculoController::class, 'show'])->name('cidadep.show');
-
-Route::get('/cidadep/{id}/edit', [DadosVeiculoController::class, 'edit'])->name('cidadep.edit');
-Route::put('/cidadep/{id}', [DadosVeiculoController::class, 'update'])->name('cidadep.update');
-Route::delete('/cidadep/{id}', [DadosVeiculoController::class, 'destroy'])->name('cidadep.destroy');
-Route::get('/produtos/pesquisa',  [DadosVeiculoController::class, 'pesquisa']);
    
 
 

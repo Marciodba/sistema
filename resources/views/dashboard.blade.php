@@ -19,7 +19,7 @@
                         
                          @foreach($vpessoaUsuarios as $vpessoaUsuario)
                       
-                                <a href="{{ route($vpessoaUsuario->funcao)}}"> <img src="data:image/png;base64,{{ $img_icones[$vpessoaUsuario->icone]}}"  width="48" height="48"
+                                <a href="{{ route($vpessoaUsuario->funcao, [ $vpessoaUsuario->functionid ,$vpessoaUsuario->nome_menu ,$vpessoaUsuario->inclui , $vpessoaUsuario->edita , $vpessoaUsuario->deleta])}}"> <img src="data:image/png;base64,{{ $img_icones[$vpessoaUsuario->icone]}}"  width="48" height="48"
                                     ></a>
                                     <span> {{$vpessoaUsuario->nome_menu}}</span>
                                     <span> </span>

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class CidadePController extends Controller
 {
-    public function index(){
+    public function index($functionid,$titulo,$inclui,$edita,$deleta){
        
         $cidades = CidadeP::where('id','>',0)->limit(50)->get();
       //  $cidades=[];
@@ -29,7 +29,8 @@ class CidadePController extends Controller
         ];
 
 
-        return view('cidadep/index',compact(['action_icons','cidades','column_aliases','mostra_coluna']));
+        return view('cidadep/index',compact(['action_icons','cidades','column_aliases','mostra_coluna'
+    ,'titulo','inclui','edita','deleta']));
     }
 
     public function show(string | int $id)

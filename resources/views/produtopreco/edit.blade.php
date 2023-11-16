@@ -1,7 +1,6 @@
 
-<h1>Alterar Vistória </h1>
 <x-alert/>
-<form action="{{route('produtopreco.update',6)}}" method="POST">
+<form action="{{route('produtopreco.update',$produtopreco[0]->produtoprecoid)}}" method="POST">
 
 @method('put')
 @include('produtopreco.partials.form',[

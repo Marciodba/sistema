@@ -16,6 +16,7 @@ class Produto extends Model
         'dtatualizacao' => 'datetime:d/m/Y H:i',
         'dtlixo' => 'datetime:d/m/Y H:i',
         'dtcad' => 'datetime:d/m/Y H:i',
+      
     ];
 
     public function produtogruposbb(){

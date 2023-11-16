@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Http\Controllers\ApuracaoLogUsuarioController;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -47,9 +48,12 @@ class LoginRequest extends FormRequest
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed'),
             ]);
+        
         }
 
         RateLimiter::clear($this->throttleKey());
+        $apuracaoLogUsuarioController = new  ApuracaoLogUsuarioController;
+        $apuracaoLogUsuarioController->salvar('ENTRADA','SITE BAIRRO');
     }
 
     /**

@@ -3,7 +3,22 @@
 <script src="{{ asset('vendor/bladewind/js/helpers.js') }}"></script>
 <script src="//unpkg.com/alpinejs" defer></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<x-bladewind.button size="small">{{$titulo}}r</x-bladewind.button>
+
+
+
+
+<x-bladewind.centered-content size="tiny">
+
+    <x-bladewind.card>
+        {{$titulo}}
+    </x-bladewind.card>
+
+</x-bladewind.centered-content>
+<x-bladewind.button  onclick="alert('Inclui')" size="tiny">Novo</x-bladewind.button>
+<x-bladewind.button  onclick="window.location='{{ route('filtro',[ {{$titulo}}]) }}'"  size="tiny">Filtro</x-bladewind.button>
+<x-bladewind.button size="tiny">Enviar</x-bladewind.button>
+<x-bladewind.button  onclick="window.print()" size="tiny">Imprimir</x-bladewind.button>
+<x-bladewind.button   onclick="window.location='{{ route('dashboard') }}'" size="tiny">Voltar</x-bladewind.button>
     <x-bladewind::table
     striped="true"
     divided="true"
@@ -50,4 +65,7 @@ deleteUser = (id, nome, uf) => {
 redirect = (url) => {
     window.open(url);
 }
+ imprimir() => {
+         window.print();
+      }
     </script>

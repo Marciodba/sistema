@@ -15,14 +15,14 @@ class VprodutoController extends Controller
 {
     private $filtro;
     private $filtrousuario;
-    public function __construct()
-    {
-        $menuSbbConfigController = new MenuSbbConfigController;
-       
-    }
 
-    public function index(Request $request)
+    public function index($functionid,$titulo,$inclui,$edita,$deleta)
+   
     {
+      
+        $menuSbbConfigController = new MenuSbbConfigController;
+       $filtro = $menuSbbConfigController->ver($functionid);
+     
         $idiomaDetalhePController = new IdiomaDetalhePController;
         $column_aliases = $idiomaDetalhePController->lerDicionario(['produto', 'produtopreco','produtogruposbb'], true);
        
@@ -72,8 +72,12 @@ class VprodutoController extends Controller
        'produtopreco.preco as produtoprecopreco' ,
        'produtopreco.qtde as produtoprecoqtde')->Join('produto', 'produto.id', '=', 'produtopreco.idproduto')
         ->Join('produtogruposbb', 'produtogruposbb.id', '=', 'produto.idgruposbb')
-      ->where('produto.id', '>', 0)->orderBy('produto.dtatualizacao','DESC')->limit(20)->get();
-    
+      ->where('produto.id', '>', 0);
+      if(!empty($filtro)){
+        $produtoprecos->where(DB::RAW($filtro));
+      }
+      $produtoprecos->orderBy('produto.dtatualizacao','DESC')->limit(20)->get();
+
         $action_icons = [];
 
         $action_icons = [
@@ -82,8 +86,9 @@ class VprodutoController extends Controller
             "icon:trash | color:red | click:deleteProduto({produtoprecoid}, '{produtonome}', '{produtocodigo}')",
         ];
 
-
-        return view('produtopreco/index', compact(['produtoprecos', 'action_icons', 'column_aliases', 'mostra_coluna']));
+    
+        return view('produtopreco/index',compact(['action_icons','produtoprecos','column_aliases','mostra_coluna'
+        ,'titulo','inclui','edita','deleta']));
     }
 
     public function edit(ProdutoPreco $cidadep, string | int $id)

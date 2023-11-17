@@ -72,11 +72,8 @@ class VprodutoController extends Controller
        'produtopreco.preco as produtoprecopreco' ,
        'produtopreco.qtde as produtoprecoqtde')->Join('produto', 'produto.id', '=', 'produtopreco.idproduto')
         ->Join('produtogruposbb', 'produtogruposbb.id', '=', 'produto.idgruposbb')
-      ->where('produto.id', '>', 0);
-      if(!empty($filtro)){
-        $produtoprecos->where(DB::RAW($filtro));
-      }
-      $produtoprecos->orderBy('produto.dtatualizacao','DESC')->limit(20)->get();
+        ->Join('setorgruposbbproduto', 'setorgruposbbproduto.idproduto', '=', 'produto.id')
+      ->where('produto.id', '>', '0')->whereRaw(DB::RAW($filtro))->orderBy('produto.dtatualizacao','DESC')->limit(20)->get();
 
         $action_icons = [];
 

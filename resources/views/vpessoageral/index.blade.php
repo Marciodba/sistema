@@ -4,6 +4,23 @@
 <script src="//unpkg.com/alpinejs" defer></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 @csrf
+<x-bladewind.centered-content size="tiny">
+
+    <x-bladewind.card>
+        {{$titulo}}
+    </x-bladewind.card>
+  
+</x-bladewind.centered-content>
+
+<x-bladewind.button  onclick="alert('Inclui')" size="tiny">Novo</x-bladewind.button>
+<x-bladewind.button  onclick="alert('Edita')"  size="tiny">Editar</x-bladewind.button>
+<x-bladewind.button  onclick="alert('Apaga')" size="tiny">Apagar</x-bladewind.button>
+<x-bladewind.button   size="tiny">Filtro</x-bladewind.button>
+<x-bladewind.button size="tiny">Enviar</x-bladewind.button>
+<x-bladewind.button  size="tiny">Imprimir</x-bladewind.button>
+<x-bladewind.button  size="tiny">Voltar</x-bladewind.button>
+
+
 <div style="overflow-x:auto;">
     <x-bladewind::table
     striped="true"
@@ -21,43 +38,41 @@
     action_title="Acao"
     hover_effect="true"/>
 </div>
-<x-bladewind::modal
-size="xl"
-backdrop_can_close="false"
-name="form-mode"
-ok_button_action="saveProfile()"
-ok_button_label="Salvar"
-close_after_action="false"
-center_action_buttons="true"
-show_error_inline="true"
-can_submit="true">
+<div>
+    <x-bladewind::modal
+        size="xl"
+        backdrop_can_close="false"
+        name="form-mode"
+        ok_button_action="saveProfile()"
+        ok_button_label="Salvar"
+        close_after_action="false"
+        center_action_buttons="true"
+        show_error_inline="true"
+        can_submit="true">
 
-<form method="get" action="{{route('vpessoageral.update',1)}}" class="profile-form">
-    @csrf
-    <b class="mt-0">Atualizar Cadastro</b>
+    <form method="get" action="{{route('vpessoageral.update',1)}}" class="profile-form">
+        @csrf
+        <b class="mt-0">Atualizar Cadastro</b>
 
-    <x-bladewind::input type="hidden" name="pessoaid"/>
-    <div class="grid grid-cols-2 gap-4 mt-6">
-        
-        <x-bladewind::input required="true" name="pessoaapelido"
-            error_message="Please enter your first name" label="Apelido" />
+        <x-bladewind::input type="hidden" name="pessoaid"/>
+        <div class="grid grid-cols-2 gap-4 mt-6">
+            
+            <x-bladewind::input required="true" name="pessoaapelido"
+                error_message="Please enter your first name" label="Apelido" />
 
-        <x-bladewind::input required="true" name="pessoanome"
-             error_message="Please enter your last name" label="Nome" />
+            <x-bladewind::input required="true" name="pessoanome"
+                error_message="Please enter your last name" label="Nome" />
 
-    <x-bladewind::input required="true" name="pessoacgc"
-         error_message="Please enter your email" label="Cpf" />
+        <x-bladewind::input required="true" name="pessoacgc"
+            error_message="Please enter your email" label="Cpf" />
 
-    <x-bladewind::input  name="pessoagruposbbcodigo" label="Grupo"/>
-    <x-bladewind::input name="pessoaobservacao" label="Observação"/>
-    <x-bladewind::input  name="pessoaramocodigo" label="Cargo"/>
-    <x-bladewind::input name="pessoaobservacao1" label="Motivo"/>
-    <x-bladewind::datepicker name="pessoadtlixo" format="dd/mm/yyyy"  placeholder="Aniversário"/>
+        <x-bladewind::input  name="pessoagruposbbcodigo" label="Grupo"/>
+        <x-bladewind::input name="pessoaobservacao" label="Observação"/>
+        <x-bladewind::input  name="pessoaramocodigo" label="Cargo"/>
+        <x-bladewind::input name="pessoaobservacao1" label="Motivo"/>
+        <x-bladewind::datepicker name="pessoadtlixo" format="dd/mm/yyyy"  placeholder="Aniversário"/>
 
-<x-bladewind::checkbox   id="pessoaativo" name="pessoaativo" color="blue"  label="Ativo"/>
-<x-bladewind::select   name="country"  data= />
-   
-
+    <x-bladewind::checkbox   id="pessoaativo" name="pessoaativo" color="blue"  label="Ativo"/>
 
 </div>
 </form>
@@ -65,6 +80,8 @@ can_submit="true">
 </x-bladewind::modal>
 
 <script>
+
+
 formmode = (pessoaid,pessoaobservacao,pessoaobservacao1,pessoagruposbbcodigo,pessoaramocodigo,pdapelido,pessoaapelido,pessoaativo,pessoacgc,pessoadtatualizacao,pessoadtcad,pessoadtlixo,pessoanome) => {
 
 

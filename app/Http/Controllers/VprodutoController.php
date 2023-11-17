@@ -10,6 +10,7 @@ use App\Models\ProdutoGruposbb;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
 use App\Http\Controllers\padrao\IdiomaDetalhePController;
+use App\Models\MenuPermissao;
 
 class VprodutoController extends Controller
 {
@@ -22,6 +23,8 @@ class VprodutoController extends Controller
       
         $menuSbbConfigController = new MenuSbbConfigController;
        $filtro = $menuSbbConfigController->ver($functionid);
+       $menuPermissaoController = new MenuPermissaoController;
+       $filtrousuario = $menuPermissaoController->ver($functionid);
      
         $idiomaDetalhePController = new IdiomaDetalhePController;
         $column_aliases = $idiomaDetalhePController->lerDicionario(['produto', 'produtopreco','produtogruposbb'], true);
@@ -73,7 +76,7 @@ class VprodutoController extends Controller
        'produtopreco.qtde as produtoprecoqtde')->Join('produto', 'produto.id', '=', 'produtopreco.idproduto')
         ->Join('produtogruposbb', 'produtogruposbb.id', '=', 'produto.idgruposbb')
         ->Join('setorgruposbbproduto', 'setorgruposbbproduto.idproduto', '=', 'produto.id')
-      ->where('produto.id', '>', '0')->whereRaw(DB::RAW($filtro))->orderBy('produto.dtatualizacao','DESC')->limit(20)->get();
+      ->where('produto.id', '>', '0')->whereRaw(DB::RAW($filtro))->whereRaw(DB::RAW($filtrousuario))->orderBy('produto.dtatualizacao','DESC')->limit(20)->get();
 
         $action_icons = [];
 

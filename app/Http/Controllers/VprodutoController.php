@@ -83,7 +83,8 @@ class VprodutoController extends Controller
         ];
 
 
-        return view('produtopreco/index', compact(['produtoprecos', 'action_icons', 'column_aliases', 'mostra_coluna']));
+        return view('produtopreco/index', compact(['produtoprecos', 'action_icons', 'column_aliases', 'mostra_coluna'
+        ,'titulo','inclui','edita','deleta']));
     }
 
     public function edit(ProdutoPreco $cidadep, string | int $id)

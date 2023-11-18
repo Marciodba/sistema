@@ -52,9 +52,8 @@
     </x-bladewind.modal>
 
     <x-bladewind.modal name="apagar" type="error" title="Confirme Exclusão">
-       
-            <form action="{{ route('cidade.destroy' ,1) }}" method="POST">
-            Excluir   {{$titulo}} <b class="title"></b>?
+      
+            Excluir  {{$titulo}}   <b class="title"></b>?
            
 
 </x-bladewind.modal>
@@ -63,9 +62,9 @@
 <script>
 
 
-destroy  = (id) => {
-    showModal('apagar');
-    domEl('.bw-delete-user .title').innerText = `${id}`;
+destroy  = (id,nome) => {
+   showModal('apagar');
+    domEl('.bw-apagar .title').innerText = `${nome}`;
 }
 
 redirect = (url) => {

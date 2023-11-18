@@ -26,7 +26,7 @@ class CidadePController extends Controller
 
     $action_icons = [
             "icon:chat-bubble-left | tip:send user a message | color:green | click:sendMessage('{nome}', '{uf}')",
-            "icon:trash | color:red | click:destroy({id})",
+            "icon:trash | color:red | click:destroy({id},'{nome}')",
         ];
 
 
@@ -52,7 +52,7 @@ class CidadePController extends Controller
 
     $action_icons = [
             "icon:chat-bubble-left | tip:send user a message | color:green | click:sendMessage('{nome}', '{uf}')",
-            "icon:trash | color:red | click:destroy({id})",
+            "icon:trash | color:red | click:destroy({id},{nome})",
         ];
 
 

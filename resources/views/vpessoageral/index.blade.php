@@ -13,8 +13,7 @@
 </x-bladewind.centered-content>
 
 <x-bladewind.button  onclick="alert('Inclui')" size="tiny">Novo</x-bladewind.button>
-<x-bladewind.button  onclick="alert('Edita')"  size="tiny">Editar</x-bladewind.button>
-<x-bladewind.button  onclick="alert('Apaga')" size="tiny">Apagar</x-bladewind.button>
+
 <x-bladewind.button   size="tiny">Filtro</x-bladewind.button>
 <x-bladewind.button size="tiny">Enviar</x-bladewind.button>
 <x-bladewind.button  size="tiny">Imprimir</x-bladewind.button>

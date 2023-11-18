@@ -16,7 +16,7 @@ class ApuracaoLogUsuarioController extends Controller
 
     public function salvar($entrada, $loguser)
     {
-        $pessoa =  Pessoa::where('apelido', Auth::user()->email)->first();
+        $pessoa =  Pessoa::where('apelido', Auth::user()->email)->orWhere('idpessoa', Auth::user()->idpessoa)->first();
        
         if (empty(Auth::user()->idpessoa)) {
             $user = User::where('id', Auth::user()->id)->first();

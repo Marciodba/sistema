@@ -26,6 +26,7 @@ class CidadePController extends Controller
 
     $action_icons = [
             "icon:chat-bubble-left | tip:send user a message | color:green | click:sendMessage('{nome}', '{uf}')",
+            "icon:trash | color:red | click:destroy({id})",
         ];
 
 
@@ -51,6 +52,7 @@ class CidadePController extends Controller
 
     $action_icons = [
             "icon:chat-bubble-left | tip:send user a message | color:green | click:sendMessage('{nome}', '{uf}')",
+            "icon:trash | color:red | click:destroy({id})",
         ];
 
 
@@ -113,6 +115,8 @@ class CidadePController extends Controller
 
     public function destroy(string | int $id)
     {
+
+        dd('aqui', $id);
         if (!$cidadep =  CidadeP::find($id)) {
             return redirect()->back();
         }

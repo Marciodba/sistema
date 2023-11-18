@@ -15,7 +15,9 @@
 
 </x-bladewind.centered-content>
 <x-bladewind.button  onclick="alert('Inclui')" size="tiny">Novo</x-bladewind.button>
-<x-bladewind.button  onclick="window.location='{{ route('filtro',[ {{$titulo}}]) }}'"  size="tiny">Filtro</x-bladewind.button>
+
+{{--<x-bladewind.button  onclick="window.location='{{ route('filtro',[ {{$titulo}}]) }}'"  size="tiny">Filtro</x-bladewind.button> --}}
+<x-bladewind.button    size="tiny">Filtro</x-bladewind.button>
 <x-bladewind.button size="tiny">Enviar</x-bladewind.button>
 <x-bladewind.button  onclick="window.print()" size="tiny">Imprimir</x-bladewind.button>
 <x-bladewind.button   onclick="window.location='{{ route('dashboard') }}'" size="tiny">Voltar</x-bladewind.button>
@@ -48,24 +50,26 @@
         We really think you should buy some Bitcoin
         despite it's ups and dowms. What sayeth thou?
     </x-bladewind.modal>
-    
+
+    <x-bladewind.modal name="apagar" type="error" title="Confirme Exclusão">
+       
+            <form action="{{ route('cidade.destroy' ,1) }}" method="POST">
+            Excluir   {{$titulo}} <b class="title"></b>?
+           
+
+</x-bladewind.modal>
     
  
 <script>
-sendMessage = (nome, uf) => {
-    showModal('info');
-    ${nome} ${uf};
-}
 
-deleteUser = (id, nome, uf) => {
-    showModal('delete-user');
-    domEl('.bw-delete-user .title').innerText = `${nome} ${uf}`;
+
+destroy  = (id) => {
+    showModal('apagar');
+    domEl('.bw-delete-user .title').innerText = `${id}`;
 }
 
 redirect = (url) => {
     window.open(url);
 }
- imprimir() => {
-         window.print();
-      }
+
     </script>

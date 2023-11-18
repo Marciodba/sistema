@@ -6,21 +6,30 @@ use App\Models\Pessoa;
 use App\Models\VpessoaGeral;
 use Illuminate\Http\Request;
 use App\Models\ProdutoGruposbb;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\PessoaRequest;
 use App\Http\Controllers\padrao\IdiomaDetalhePController;
 
 class VpessoaGeralController extends Controller
 {
-    public function index(){
-       
-        $vpessoagerais = VpessoaGeral::where('pessoaid','>',0)->limit(50)->orderBy('pessoadtatualizacao','DESC')->get();
+    public function index($functionid,$titulo,$inclui,$edita,$deleta){
+             
+        $menuSbbConfigController = new MenuSbbConfigController;
+       $filtro = $menuSbbConfigController->ver($functionid);
+       $menuPermissaoController = new MenuPermissaoController;
+       $filtrousuario = $menuPermissaoController->ver($functionid);
+
+
+        $vpessoagerais = VpessoaGeral::where('pessoaid','>',0)->whereRaw(DB::RAW($filtro))->whereRaw(DB::RAW($filtrousuario))->limit(50)->orderBy('pessoadtatualizacao','DESC')->get();
+
+    
         $idiomaDetalhePController = new IdiomaDetalhePController;
         $column_aliases = $idiomaDetalhePController->ler('vpessoageral',true);
          $mostra_coluna =  array_keys($column_aliases);
        
          $altera_coluna =  implode("}','{",$mostra_coluna);
             $altera_coluna ="'{pessoaid}','{pessoaobservacao}','{pessoaobservacao1}','{" .$altera_coluna."}'";
-            //
+   
 
          $mostra_coluna =  implode(',',$mostra_coluna);
 
@@ -32,8 +41,9 @@ class VpessoaGeralController extends Controller
             "icon:trash | color:red | click:deleteUser({pessoaid}, '{pessoanome}', '{pessoaapelido}')",
         ];
 
-
-        return view('vpessoageral/index',compact(['vpessoagerais', 'action_icons','column_aliases','mostra_coluna']));
+        $inclui="true";
+        return view('vpessoageral/index',compact(['vpessoagerais', 'action_icons','column_aliases','mostra_coluna'  
+        ,'titulo','inclui','edita','deleta']));
     }
 
     public function edit(VpessoaGeral $cidadep, string | int $id)

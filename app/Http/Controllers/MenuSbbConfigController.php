@@ -12,11 +12,17 @@ class MenuSbbConfigController extends Controller
 
     public function ver($idmenusbb){
         $menuSbbConfig = MenuSbbConfig::where('idmenusbb',$idmenusbb)->where('idpessoa',Auth::user()->idpessoa)->first();
-        $macesso ="1=1";
+        $macesso ='1=1';
+     
         if(!empty($menuSbbConfig)){
-          $macesso =str_replace($menuSbbConfig->clausulawhere,'@@usuario',Auth::user()->email);
+          if(substr($menuSbbConfig->clausulawhere, 0, 3) == 'and'){
+            $macesso =substr($menuSbbConfig->clausulawhere, 3, strlen($menuSbbConfig->clausulawhere));
+          }
+     
+          $macesso = str_replace('@@usuario',Auth::user()->email,$macesso);
 
         }
+
         return $macesso;
     }
 }

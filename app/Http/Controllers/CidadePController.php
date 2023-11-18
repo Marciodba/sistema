@@ -26,6 +26,33 @@ class CidadePController extends Controller
 
     $action_icons = [
             "icon:chat-bubble-left | tip:send user a message | color:green | click:sendMessage('{nome}', '{uf}')",
+            "icon:trash | color:red | click:destroy({id},'{nome}')",
+        ];
+
+
+        return view('cidadep/index',compact(['action_icons','cidades','column_aliases','mostra_coluna'
+    ,'titulo','inclui','edita','deleta']));
+    }
+
+    public function filtro(){
+      
+        $cidades = CidadeP::where('id','>',0)->limit(5)->get();
+      //  $cidades=[];
+      //  foreach ($cidadeps as $value){
+      //      $cidades[$value->id] = $value->nome; 
+     //       $cidades[$value->id] = $value->uf; 
+     //   }
+
+     //   $cidades = collect($cidades);
+     $idiomaDetalhePController = new IdiomaDetalhePController;
+     $column_aliases = $idiomaDetalhePController->ler('cidadep',true);
+      $mostra_coluna =  array_keys($column_aliases);
+      $mostra_coluna =  implode(',',$mostra_coluna);
+
+
+    $action_icons = [
+            "icon:chat-bubble-left | tip:send user a message | color:green | click:sendMessage('{nome}', '{uf}')",
+            "icon:trash | color:red | click:destroy({id},{nome})",
         ];
 
 
@@ -88,6 +115,8 @@ class CidadePController extends Controller
 
     public function destroy(string | int $id)
     {
+
+        dd('aqui', $id);
         if (!$cidadep =  CidadeP::find($id)) {
             return redirect()->back();
         }

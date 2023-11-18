@@ -36,7 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/produtopreco/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [VprodutoController::class, 'index'])->name('getCadastroPassagens');
     Route::get('/produtopreco/{id}/edit', [VprodutoController::class, 'edit'])->name('produtopreco.edit');
     Route::put('/produtopreco/{id}', [VprodutoController::class, 'update'])->name('produtopreco.update');
-
+    Route::get('/cidade', [CidadePController::class, 'filtro'])->name('filtro');
+    Route::delete('/cidade/{id}', [CidadePController::class, 'destroy'])->name('cidade.destroy');
     Route::get('/getPessoaGeral/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [VpessoaGeralController::class, 'index'])->name('getPessoaGeral');
     Route::get('/vpessoageral/{id}/edit', [VpessoaGeralController::class, 'edit'])->name('vpessoageral.edit');
     Route::get('/vpessoageral/{id}', [VpessoaGeralController::class, 'update'])->name('vpessoageral.update');

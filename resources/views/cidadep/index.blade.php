@@ -3,7 +3,24 @@
 <script src="{{ asset('vendor/bladewind/js/helpers.js') }}"></script>
 <script src="//unpkg.com/alpinejs" defer></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<x-bladewind.button size="small">{{$titulo}}r</x-bladewind.button>
+
+
+
+
+<x-bladewind.centered-content size="tiny">
+
+    <x-bladewind.card>
+        {{$titulo}}
+    </x-bladewind.card>
+
+</x-bladewind.centered-content>
+<x-bladewind.button  onclick="alert('Inclui')" size="tiny">Novo</x-bladewind.button>
+
+{{--<x-bladewind.button  onclick="window.location='{{ route('filtro',[ {{$titulo}}]) }}'"  size="tiny">Filtro</x-bladewind.button> --}}
+<x-bladewind.button    size="tiny">Filtro</x-bladewind.button>
+<x-bladewind.button size="tiny">Enviar</x-bladewind.button>
+<x-bladewind.button  onclick="window.print()" size="tiny">Imprimir</x-bladewind.button>
+<x-bladewind.button   onclick="window.location='{{ route('dashboard') }}'" size="tiny">Voltar</x-bladewind.button>
     <x-bladewind::table
     striped="true"
     divided="true"
@@ -33,21 +50,25 @@
         We really think you should buy some Bitcoin
         despite it's ups and dowms. What sayeth thou?
     </x-bladewind.modal>
-    
+
+    <x-bladewind.modal name="apagar" type="error" title="Confirme Exclusão">
+      
+            Excluir  {{$titulo}}   <b class="title"></b>?
+           
+
+</x-bladewind.modal>
     
  
 <script>
-sendMessage = (nome, uf) => {
-    showModal('info');
-    ${nome} ${uf};
-}
 
-deleteUser = (id, nome, uf) => {
-    showModal('delete-user');
-    domEl('.bw-delete-user .title').innerText = `${nome} ${uf}`;
+
+destroy  = (id,nome) => {
+   showModal('apagar');
+    domEl('.bw-apagar .title').innerText = `${nome}`;
 }
 
 redirect = (url) => {
     window.open(url);
 }
+
     </script>

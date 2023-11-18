@@ -66,11 +66,14 @@
                                 </div>
                                 
                                 <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white"> {{$produtoFornecedor->pessoa->nome}}</h2>
-                           
+                       
                                 <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                                     {{ isset($produtoFornecedor->descricao) ? $produtoFornecedor->descricao : 'Endereço' }}
                         
                                 </p>
+                                @if(isset($img_icones[$produtoFornecedor->codigo]))
+                                <img src="data:image/png;base64,{{ $img_icones  [$produtoFornecedor->codigo]}}" width="128" height="128">
+                                @endif
                             </div>
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">

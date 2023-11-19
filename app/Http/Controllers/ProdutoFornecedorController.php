@@ -13,8 +13,8 @@ class ProdutoFornecedorController extends Controller
     public function index()
     {
 
-        $produtoFornecedors = ProdutoFornecedor::select('*')->with(['pessoa', 'produto', 'endereco' => function ($query) {
-            $query->whereNotNull(['observacao'])    ;
+        $produtoFornecedors = ProdutoFornecedor::with(['pessoa', 'produto', 'endereco' => function ($query) {
+            $query->whereNotNull(['observacao']);
         }])->where('padrao', true)->orderBy('dtatualizacao','DESC')->limit(500)->get();
         $img_icones = [];
       

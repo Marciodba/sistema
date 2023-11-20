@@ -14,6 +14,10 @@ class ProdutoFornecedor extends Model
     public $timestamps = false;
     public $incrementing = false;
 
+    protected $casts = [
+        'dtatualizacao' => 'datetime:d/m/Y H:i',
+    ];
+
     public function produto(){
         return $this->hasOne('App\Models\Produto', 'id', 'idproduto');
     }

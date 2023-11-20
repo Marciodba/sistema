@@ -12,7 +12,7 @@
   
 </x-bladewind.centered-content>
 
-<x-bladewind.button  onclick="alert('Inclui')" size="tiny">Novo</x-bladewind.button>
+<x-bladewind.button  onclick="formmodeInclui()" size="tiny">Novo</x-bladewind.button>
 
 <x-bladewind.button   size="tiny">Filtro</x-bladewind.button>
 <x-bladewind.button size="tiny">Enviar</x-bladewind.button>
@@ -48,9 +48,12 @@
 </div>
 
 <script>
+    formmodeInclui =()=>{
+        showModal('form-mode');
+    }
+
     formmode = (id, codigo, descricao, padrao ,dtatualizacao,site) => {
 
-        alert(site);
         showModal('form-mode');
         domEl('.id').value = id;
         domEl('.codigo').value = codigo;

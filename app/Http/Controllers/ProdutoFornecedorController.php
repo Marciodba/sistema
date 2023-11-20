@@ -7,6 +7,7 @@ use App\Models\ArqFisicoCli;
 use Illuminate\Http\Request;
 use App\Models\ProdutoFornecedor;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\padrao\IdiomaDetalhePController;
 
 class ProdutoFornecedorController extends Controller
@@ -20,10 +21,11 @@ class ProdutoFornecedorController extends Controller
         }])->where('padrao', true)->orderBy('dtatualizacao','DESC')->limit(500)->get();
         $img_icones = [];
       
-        if (!empty($produtoFornecedors[0]) && !empty($produtoFornecedors[0]->pessoa)) {
+        if (!empty($produtoFornecedors[0]) && !empty($produtoFornecedors->pessoa)) {
 
 
             $icones = $produtoFornecedors[0]->pessoa->pluck('apelido');
+    
             $icones_prod = $produtoFornecedors->pluck('codigo');
             $arqFisicos = ArqFisicoCli::select(DB::RAW("encode(arqfoto, 'base64') as imagem,codnome"))->whereIn('codnome', $icones)
             ->orwhereIn('codnome', $icones_prod)->get();
@@ -34,7 +36,7 @@ class ProdutoFornecedorController extends Controller
             }
        
         }
-      
+  
         return view('welcome', compact('produtoFornecedors', 'img_icones'));
     }
 
@@ -54,7 +56,7 @@ class ProdutoFornecedorController extends Controller
             $altera_coluna ="'{id}','{" .$altera_coluna."}'";
             $mostra_coluna =  implode(',',$mostra_coluna);
 
-           $produtoFornecedors = ProdutoFornecedor::where('padrao', true)
+           $produtoFornecedors = ProdutoFornecedor::where('padrao', true)->where('idpessoa',Auth::user()->idpessoa)
         ->whereRaw(DB::RAW($filtro))->whereRaw(DB::RAW($filtrousuario))->limit(100)->orderBy('dtatualizacao','DESC')->get();
 
 
@@ -76,10 +78,18 @@ class ProdutoFornecedorController extends Controller
        
 
         $data = $request->all();
-  
-        if (!$objEntidade =  ProdutoFornecedor::find($data['id'])) {
-            return redirect()->back();
+        if(!empty($data['id'])){
+            $objEntidade =  ProdutoFornecedor::find($data['id']);
+        }else{
+            $objEntidade = new   ProdutoFornecedor;
+            $objEntidade->idproduto=1;
+            $objEntidade->idpessoa=Auth::user()->idpessoa;
+            $objEntidade->dtpedido = now();
         }
+       
+
+    
+     
         $objEntidade->codigo = $data['codigo'];
         $objEntidade->descricao = $data['descricao'];
         $objEntidade->site = $data['site'];

@@ -9,6 +9,7 @@ use App\Http\Controllers\VpessoaUsuarioController;
 use App\Http\Controllers\ProdutoFornecedorController;
 use App\Http\Controllers\VpessoaGeralController;
 use App\Http\Controllers\VprodutoController;
+use App\Models\ProdutoFornecedor;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/produto_fornecedor/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [ProdutoFornecedorController::class, 'ler'])->name('getCadastroItinerario');
+    Route::get('/produto_fornecedor/{id}', [ProdutoFornecedorController::class, 'update'])->name('produto_fornecedor.update');
+
     Route::get('/produtopreco/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [VprodutoController::class, 'index'])->name('getCadastroPassagens');
     Route::get('/produtopreco/{id}/edit', [VprodutoController::class, 'edit'])->name('produtopreco.edit');
     Route::put('/produtopreco/{id}', [VprodutoController::class, 'update'])->name('produtopreco.update');
@@ -56,7 +60,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/getVApuraOsCmSys/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getVApuraOsCmSys');
     Route::get('/getEscala/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getEscala');  
     Route::get('/getCadastroGrupo/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getCadastroGrupo');    
-    Route::get('/getCadastroItinerario/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getCadastroItinerario'); 
+    Route::get('/getCadastroItinerario/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('verificar_1'); 
     Route::get('/getApuraOperacao', [CidadePController::class, 'index'])->name('getApuraOperacao'); 
     Route::get('/getComprasSolicitacao/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getComprasSolicitacao');
     Route::get('/getCompra/{idmenusbb}/{titulo}/{inclui}/{edita}/{deleta}', [CidadePController::class, 'index'])->name('getCompra'); 

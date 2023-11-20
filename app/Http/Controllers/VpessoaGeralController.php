@@ -37,7 +37,7 @@ class VpessoaGeralController extends Controller
 
     $action_icons = [
            
-            "icon:pencil | click:formmode($altera_coluna)",
+            "icon:pencil | click:formmodeP($altera_coluna)",
             "icon:trash | color:red | click:deleteUser({pessoaid}, '{pessoanome}', '{pessoaapelido}')",
         ];
 

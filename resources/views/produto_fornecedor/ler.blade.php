@@ -14,10 +14,10 @@
 
 <x-bladewind.button  onclick="formmodeInclui()" size="tiny">Novo</x-bladewind.button>
 
-<x-bladewind.button   size="tiny">Filtro</x-bladewind.button>
+<x-bladewind.button    size="tiny">Filtro</x-bladewind.button>
 <x-bladewind.button size="tiny">Enviar</x-bladewind.button>
-<x-bladewind.button  size="tiny">Imprimir</x-bladewind.button>
-<x-bladewind.button  size="tiny">Voltar</x-bladewind.button>
+<x-bladewind.button  onclick="window.print()" size="tiny">Imprimir</x-bladewind.button>
+<x-bladewind.button   onclick="window.location='{{ route('dashboard') }}'" size="tiny">Voltar</x-bladewind.button>
 
 
 <div style="overflow-x:auto;">
@@ -76,7 +76,7 @@
 
 
     }
-    // the script called by the Update button
+
     saveProfile = () => {
         if (validateForm('.profile-form')) {
 

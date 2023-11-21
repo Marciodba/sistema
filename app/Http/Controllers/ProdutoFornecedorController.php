@@ -85,6 +85,9 @@ class ProdutoFornecedorController extends Controller
         }else{
             $objEntidade = new   ProdutoFornecedor;
             $objEntidade->idproduto=1;
+            $objEntidade->idunidade=1;
+            $objEntidade->qtdepedido=1;
+            $objEntidade->qtdeestoque=1;
             $objEntidade->idpessoa=Auth::user()->idpessoa;
             $objEntidade->dtpedido = now();
         }

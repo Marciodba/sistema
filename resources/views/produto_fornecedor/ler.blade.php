@@ -78,9 +78,6 @@
     }
     // the script called by the Update button
     saveProfile = () => {
-
-
-
         if (validateForm('.profile-form')) {
 
             domEl('.profile-form').submit();

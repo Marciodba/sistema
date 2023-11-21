@@ -21,7 +21,7 @@ class ProdutoFornecedorController extends Controller
         }])->where('padrao', true)->orderBy('dtatualizacao','DESC')->limit(500)->get();
         $img_icones = [];
       
-        if (!empty($produtoFornecedors[0]) && !empty($produtoFornecedors->pessoa)) {
+        if (!empty($produtoFornecedors[0]) && !empty($produtoFornecedors[0]->pessoa)) {
 
 
             $icones = $produtoFornecedors[0]->pessoa->pluck('apelido');

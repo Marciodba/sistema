@@ -17,16 +17,7 @@
 <x-bladewind.button  size="tiny" onclick="formFiltro()">
     Filtro
 </x-bladewind.button>
-<x-bladewind.modal
-    type="warning"
-    title="Filtro {{$titulo}}"
-    name="filtro">
-   
-    @foreach ($column_aliases as $key => $coluna)
-        <x-bladewind::input  name='{{$key}}' label='{{$coluna}}'/>
- 
-    @endforeach
-</x-bladewind.modal>
+
 
 <x-bladewind.button size="tiny">Enviar</x-bladewind.button>
 <x-bladewind.button  onclick="window.print()" size="tiny">Imprimir</x-bladewind.button>
@@ -63,6 +54,17 @@
         Excluir  {{$titulo}}   <b class="title"></b>?
        
 
+</x-bladewind.modal>
+{{-- FILTRO EM ULTIMO MODAL LUGAR ---}}
+<x-bladewind.modal
+    type="warning"
+    title="Filtro {{$titulo}}"
+    name="filtro">
+   
+    @foreach ($column_aliases as $key => $coluna)
+        <x-bladewind::input  name='{{$key}}' label='{{$coluna}}'/>
+ 
+    @endforeach
 </x-bladewind.modal>
 
 </div>

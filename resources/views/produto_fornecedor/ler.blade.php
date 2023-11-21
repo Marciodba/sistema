@@ -59,7 +59,7 @@
         showModal('form-mode');
     }
 
-    formmode = (id, codigo, descricao, padrao ,dtatualizacao,site) => {
+    formmode = (id, codigo, descricao, site) => {
 
         showModal('form-mode');
         domEl('.id').value = id;
@@ -67,11 +67,7 @@
         domEl('.descricao').value = descricao;
         domEl('.site').value = site;
 
-        var ativo = "false"
-        if (padrao == 1) {
-            ativo = "true";
-        }
-        domEl('.padrao').value = ativo;
+         domEl('.padrao').value = true;
 
 
 

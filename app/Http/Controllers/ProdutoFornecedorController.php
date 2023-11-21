@@ -56,7 +56,7 @@ class ProdutoFornecedorController extends Controller
             $altera_coluna ="'{id}','{" .$altera_coluna."}'";
             $mostra_coluna =  implode(',',$mostra_coluna);
 
-           $produtoFornecedors = ProdutoFornecedor::where('padrao', true)->where('idpessoa',Auth::user()->idpessoa)
+           $produtoFornecedors = ProdutoFornecedor::where('idpessoa',Auth::user()->idpessoa)
         ->whereRaw(DB::RAW($filtro))->whereRaw(DB::RAW($filtrousuario))->limit(100)->orderBy('dtatualizacao','DESC')->get();
 
 

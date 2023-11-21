@@ -79,7 +79,7 @@ class ProdutoFornecedorController extends Controller
        
 
         $data = $request->all();
-        dd( $data);
+    
         if(!empty($data['id'])){
             $objEntidade =  ProdutoFornecedor::find($data['id']);
         }else{

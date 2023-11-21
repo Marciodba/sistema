@@ -76,6 +76,12 @@
 <script>
     formmodeInclui =()=>{
         showModal('form-mode');
+        domEl('.id').value = '';
+        domEl('.codigo').value = '';
+        domEl('.descricao').value = '';
+        domEl('.site').value ='';
+
+         domEl('.padrao').value = true;
     }
 
     formmode = (id, codigo, descricao, site) => {

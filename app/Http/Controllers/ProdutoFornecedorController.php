@@ -63,6 +63,7 @@ class ProdutoFornecedorController extends Controller
        
         $action_icons = [
             "icon:pencil | click:formmode($altera_coluna)",
+            "icon:trash | color:red | click:destroy({id},'{descricao}')",
         ];
 
    
@@ -78,6 +79,7 @@ class ProdutoFornecedorController extends Controller
        
 
         $data = $request->all();
+        dd( $data);
         if(!empty($data['id'])){
             $objEntidade =  ProdutoFornecedor::find($data['id']);
         }else{
@@ -111,5 +113,17 @@ class ProdutoFornecedorController extends Controller
         
         return redirect()->back();
       
+    }
+
+    public function destroy(string | int $id)
+    {
+
+        if (!$objEntidade =  ProdutoFornecedor::find($id)) {
+            return redirect()->back();
+        }
+     
+        $objEntidade->delete();
+
+        return redirect()->back();
     }
 }

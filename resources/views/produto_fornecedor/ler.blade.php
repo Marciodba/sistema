@@ -45,6 +45,13 @@
             </div>
         </form>
     </x-bladewind::modal>
+    <x-bladewind.modal name="apagar" type="error" title="Confirme Exclusão">
+      
+        Excluir  {{$titulo}}   <b class="title"></b>?
+       
+
+</x-bladewind.modal>
+
 </div>
 
 <script>
@@ -72,6 +79,8 @@
     // the script called by the Update button
     saveProfile = () => {
 
+
+
         if (validateForm('.profile-form')) {
 
             domEl('.profile-form').submit();
@@ -79,8 +88,10 @@
             return false;
         }
     }
-    deleteUser = (id, nome, uf) => {
-        showModal('delete-user');
-        domEl('.bw-delete-user .title').innerText = `${descricao} ${codigo}`;
-    }
+    destroy  = (id,nome) => {
+   showModal('apagar');
+    domEl('.bw-apagar .title').innerText = `${nome}`;
+}
+
+    
 </script>

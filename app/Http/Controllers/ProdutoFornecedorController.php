@@ -98,7 +98,7 @@ class ProdutoFornecedorController extends Controller
         $objEntidade->codigo = $data['codigo'];
         $objEntidade->descricao = $data['descricao'];
         $objEntidade->site = $data['site'];
-    
+        $objEntidade->obs = $data['obs'];
         $objEntidade->dtatualizacao = now();
 
         if(!empty($data['padrao'])){

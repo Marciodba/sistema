@@ -13,7 +13,11 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Principal '. env('DB_HOST') . '-'. env('DB_DATABASE')) }}
+                        @if( env('APP_DEBUG'))
+                          {{ __('Principal '. env('DB_HOST') . '-'. env('DB_DATABASE')) }}
+                        @else
+                        {{ __( env('APP_NAME')) }}
+                        @endif
                     </x-nav-link>
                 </div>
             </div>

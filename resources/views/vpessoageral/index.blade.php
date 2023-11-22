@@ -14,7 +14,9 @@
 
 <x-bladewind.button  onclick="alert('Inclui')" size="tiny">Novo</x-bladewind.button>
 
-<x-bladewind.button   size="tiny">Filtro</x-bladewind.button>
+<x-bladewind.button  size="tiny" onclick="formFiltro()">
+    Filtro
+</x-bladewind.button>
 <x-bladewind.button size="tiny">Enviar</x-bladewind.button>
 <x-bladewind.button  size="tiny">Imprimir</x-bladewind.button>
 <x-bladewind.button  size="tiny">Voltar</x-bladewind.button>
@@ -77,7 +79,19 @@
 </form>
 
 </x-bladewind::modal>
+{{-- FILTRO EM ULTIMO MODAL LUGAR ---}}
+<x-bladewind.modal
+    type="warning"
+    title="Filtro {{$titulo}}"
+    name="filtro">
+    <div class="grid grid-cols-2 gap-4 mt-6">
+    @foreach ($column_aliases as $key => $coluna)
+   
+        <x-bladewind::input  name='{{$key}}' label='{{$coluna}}'/>
 
+    @endforeach
+</div>
+</x-bladewind.modal>
 <script>
 
 
@@ -122,7 +136,9 @@ deleteUser = (id, nome, uf) => {
 redirect = (url) => {
     window.open(url);
 }
-
+formFiltro =()=>{
+    showModal('filtro');  
+}
 
     </script>
 

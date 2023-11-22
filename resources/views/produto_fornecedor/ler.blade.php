@@ -60,11 +60,13 @@
     type="warning"
     title="Filtro {{$titulo}}"
     name="filtro">
-   
+    <div class="grid grid-cols-2 gap-4 mt-6">
     @foreach ($column_aliases as $key => $coluna)
+    
         <x-bladewind::input  name='{{$key}}' label='{{$coluna}}'/>
  
     @endforeach
+<div></div>
 </x-bladewind.modal>
 
 </div>

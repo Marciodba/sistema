@@ -66,7 +66,7 @@
         <x-bladewind::input  name='{{$key}}' label='{{$coluna}}'/>
  
     @endforeach
-<div></div>
+</div>
 </x-bladewind.modal>
 
 </div>

@@ -100,10 +100,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/getVApuraPesquisa', [CidadePController::class, 'index'])->name('getVApuraPesquisa');
     Route::get('/getVApuraPesquisa', [CidadePController::class, 'index'])->name('getVApuraPesquisa');
     Route::get('/getRecadoCanalComunicacao', [CidadePController::class, 'index'])->name('getRecadoCanalComunicacao');
-    
-   
-
-
+    Route::get('/consultaBordo', [CidadePController::class, 'index'])->name('consultaBordo');
+    Route::get('/consultaTac2', [CidadePController::class, 'index'])->name('consultaTac2');
+    Route::get('/consultaTac', [CidadePController::class, 'index'])->name('consultaTac');
+    Route::get('/ConsultaApuracaoServico', [CidadePController::class, 'index'])->name('ConsultaApuracaoServico');
+    Route::get('/consultaVeiculoColeta', [CidadePController::class, 'index'])->name('consultaVeiculoColeta');
+    Route::get('/veiculoColetaTopN', [CidadePController::class, 'index'])->name('veiculoColetaTopN');
+    Route::get('/getconsultaSgg', [CidadePController::class, 'index'])->name('getconsultaSgg');
+    Route::get('/consultaCartaoSgg', [CidadePController::class, 'index'])->name('consultaCartaoSgg');
+    Route::get('/consultaCartaoFraude', [CidadePController::class, 'index'])->name('consultaCartaoFraude');
+    Route::get('/consultaMeiaViagem', [CidadePController::class, 'index'])->name('consultaMeiaViagem');
+    Route::get('/getApuraPicoHora', [CidadePController::class, 'index'])->name('getApuraPicoHora');
+    Route::get('/getCartaoTotal', [CidadePController::class, 'index'])->name('getCartaoTotal');
+    Route::get('/getlinhaTotal', [CidadePController::class, 'index'])->name('getlinhaTotal');
 });
 
 require __DIR__.'/auth.php';

@@ -47,11 +47,7 @@
                     </svg>
                 </div>
               
-               {{-- teste codigo principal--}}
-
-   
-
-                <div class="mt-16">
+                    <div class="mt-12">
                     <div class="grid grid-cols-2 md:grid-cols-2  gap-6 lg:gap-8">
                     @foreach ($produtoFornecedors as $produtoFornecedor)
                  

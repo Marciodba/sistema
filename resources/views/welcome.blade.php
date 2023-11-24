@@ -47,8 +47,10 @@
                     </svg>
                 </div>
               
-               
-               
+               {{-- teste codigo principal--}}
+
+   
+
                 <div class="mt-16">
                     <div class="grid grid-cols-2 md:grid-cols-2  gap-6 lg:gap-8">
                     @foreach ($produtoFornecedors as $produtoFornecedor)
@@ -80,8 +82,13 @@
                                 <img src="data:image/png;base64,{{ $img_icones  [$produtoFornecedor->codigo]}}" width="128" height="128">
                                 @endif
                                 @if(!empty($produtoFornecedor->obs))
-                                  <img src="{{ $produtoFornecedor->obs}}" width="128"  height="128">
+                                    @if(str_contains($produtoFornecedor->obs, 'youtu'))
+                                             <iframe width="300" height="200" src="{{ $produtoFornecedor->obs}}" title="{{ $produtoFornecedor->descricao}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                    @else
+                                     <img src="{{ $produtoFornecedor->obs}}" width="128"  height="128">
+                                  @endif
                                 @endif
+                        
                             </div>
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">

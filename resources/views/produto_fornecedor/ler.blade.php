@@ -47,6 +47,7 @@
                 <x-bladewind::input name="site" error_message="Please enter your email" label="Site" />
                 <x-bladewind::input name="obs" error_message="link img" label="Link Imagem" />
                 <x-bladewind::checkbox id="padrao" name="padrao" color="blue" label="Ativa no Site" />
+                <x-bladewind::input name="padrao_in"  />
             </div>
         </form>
     </x-bladewind::modal>
@@ -84,7 +85,10 @@
         domEl('.descricao').value = '';
         domEl('.site').value ='';
         domEl('.obs').value = '';
-         domEl('.padrao').value = true;
+        domEl('.padrao').checked = true;
+         domEl('.padrao_in').value = true;
+
+
     }
 
     formmode = (id, codigo, descricao, site,obs) => {
@@ -95,7 +99,16 @@
         domEl('.descricao').value = descricao;
         domEl('.site').value = site;
         domEl('.obs').value = obs;
-         domEl('.padrao').value = true;
+
+
+         domEl('.padrao_in').value = 'true';
+
+        if(domEl('.padrao_in').value == 'true'){
+            domEl('.padrao').value = true;
+        }else{
+            domEl('.padrao').value = false;
+        }
+      
 
 
 

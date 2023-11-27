@@ -24,6 +24,7 @@ use App\Models\ProdutoFornecedor;
 
 
 Route::get('/', [ProdutoFornecedorController::class, 'index']);
+Route::get('/produto_cliente/{id}', [ProdutoFornecedorController::class, 'fornecedorDE'])->name('bemvindo');
 Route::get('/dashboard', function () {
    
     return view('dashboard');

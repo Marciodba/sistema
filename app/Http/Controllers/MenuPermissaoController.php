@@ -20,6 +20,7 @@ class MenuPermissaoController extends Controller
           $macesso = str_replace('@@usuario',Auth::user()->email,$macesso);
 
         }
+        
 
         return $macesso;
     }

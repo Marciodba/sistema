@@ -874,16 +874,16 @@
 
             <div class="mt-12">
                 <div class="grid grid-cols-2 md:grid-cols-2  gap-6 lg:gap-8">
-                    @foreach ($produtoFornecedors as $produtoFornecedor)
+                    @foreach ($clientes as $cliente)
                         <div>
 
-                            <a href={{ route('bemvindo', ['id' => $produtoFornecedor->idpessoa])   }}
+                            <a href={{ route('bemvindo', ['id' => $cliente->id])   }}
                                 class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                                 <div>
                                     <div
                                         class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                        @if (isset($img_icones[$produtoFornecedor->pessoa->apelido]))
-                                            <img src="data:image/png;base64,{{ $img_icones[$produtoFornecedor->pessoa->apelido] }}"
+                                        @if (isset($img_icones[$cliente->apelido]))
+                                            <img src="data:image/png;base64,{{ $img_icones[$cliente->apelido] }}"
                                                 width="48" height="48">
                                         @else
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -895,26 +895,13 @@
                                     </div>
 
                                     <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">
-                                        {{ $produtoFornecedor->pessoa->nome }}</h2>
+                                        {{ $cliente->nome }}</h2>
 
                                     <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                        {{ isset($produtoFornecedor->descricao) ? $produtoFornecedor->descricao : 'Endereço' }}
+                                        {{ isset($cliente->observacao) ? $cliente->observacao : 'Endereço' }}
 
                                     </p>
-                                    @if (isset($img_icones[$produtoFornecedor->codigo]))
-                                        <img src="data:image/png;base64,{{ $img_icones[$produtoFornecedor->codigo] }}"
-                                            width="128" height="128">
-                                    @endif
-                                    @if (!empty($produtoFornecedor->obs))
-                                        @if (str_contains($produtoFornecedor->obs, 'youtu'))
-                                            <iframe width="300" height="200" src="{{ $produtoFornecedor->obs }}"
-                                                title="{{ $produtoFornecedor->descricao }}" frameborder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                allowfullscreen></iframe>
-                                        @else
-                                            <img src="{{ $produtoFornecedor->obs }}" width="128" height="128">
-                                        @endif
-                                    @endif
+                         
                                 </div>
 
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

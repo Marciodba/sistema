@@ -17,10 +17,10 @@ class PessoaController extends Controller
     {
 
 
-        $clientes = Pessoa::where('ativo', true)->orderBy('dtatualizacao','DESC')->limit(500)->get();
+        $clientes = Pessoa::where('ativo', true)->where('tipo', 'S')->orderBy('dtatualizacao','DESC')->limit(500)->get();
         $img_icones = [];
       
-        if (!empty($cliente)) {
+        if (!empty($clientes)) {
 
 
             $icones = $clientes->pluck('apelido');

@@ -4,6 +4,7 @@ use App\Models\CidadeP;
 use App\Models\VpessoaUsuario;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CidadePController;
+use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VpessoaUsuarioController;
 use App\Http\Controllers\ProdutoFornecedorController;
@@ -23,7 +24,7 @@ use App\Models\ProdutoFornecedor;
 */
 
 
-Route::get('/', [ProdutoFornecedorController::class, 'index']);
+Route::get('/', [PessoaController::class, 'index']);
 Route::get('/produto_cliente/{id}', [ProdutoFornecedorController::class, 'fornecedorDE'])->name('bemvindo');
 Route::get('/dashboard', function () {
    

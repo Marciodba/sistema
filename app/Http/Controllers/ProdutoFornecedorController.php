@@ -107,12 +107,16 @@ class ProdutoFornecedorController extends Controller
        
 
         $data = $request->all();
-    
+        
+      
         if(!empty($data['id'])){
             $objEntidade =  ProdutoFornecedor::find($data['id']);
+            
         }else{
+            $ctrl =new  ProdutoController;
+            $produto = $ctrl->cadastraProduto($data['codigo'], $data['descricao']);
             $objEntidade = new   ProdutoFornecedor;
-            $objEntidade->idproduto=1;
+            $objEntidade->idproduto=$produto->id;
             $objEntidade->idunidade=1;
             $objEntidade->qtdepedido=1;
             $objEntidade->qtdeestoque=1;

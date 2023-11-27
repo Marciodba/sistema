@@ -11,7 +11,11 @@ class Produto extends Model
     protected $table = 'public.produto';
     public $timestamps = false;
     public $incrementing = false;
-
+    protected $fillable = [
+    'id', 'codigo', 'nome', 'ativo', 'dtcad', 'idgruposbb', 'observacao',
+     'estoqueminimo', 'comprarqtde', 'dtatualizacao', 'codigobarra', 'idunidade', 'codigofabricante', 'idmodelo', 'dtlixo',
+      'saldototal', 'precounitario', 'tempogarantia', 'tempopreparo', 'detalhe', 'lucro', 'uid'
+    ];
     protected $casts = [
         'dtatualizacao' => 'datetime:d/m/Y H:i',
         'dtlixo' => 'datetime:d/m/Y H:i',

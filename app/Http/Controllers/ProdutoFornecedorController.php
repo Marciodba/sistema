@@ -40,6 +40,34 @@ class ProdutoFornecedorController extends Controller
         return view('welcome', compact('produtoFornecedors', 'img_icones'));
     }
 
+    public function fornecedorDE($id)
+    {
+
+
+        $produtoFornecedors = ProdutoFornecedor::with(['pessoa', 'produto', 'endereco' => function ($query) {
+            $query->whereNotNull(['observacao']);
+        }])->where('padrao', true)->where('idpessoa',$id)->orderBy('dtatualizacao','DESC')->limit(500)->get();
+        $img_icones = [];
+      
+        if (!empty($produtoFornecedors[0]) && !empty($produtoFornecedors[0]->pessoa)) {
+
+
+            $icones = $produtoFornecedors[0]->pessoa->pluck('apelido');
+    
+            $icones_prod = $produtoFornecedors->pluck('codigo');
+            $arqFisicos = ArqFisicoCli::select(DB::RAW("encode(arqfoto, 'base64') as imagem,codnome"))->whereIn('codnome', $icones)
+            ->orwhereIn('codnome', $icones_prod)->get();
+     
+            foreach ($arqFisicos as $arqFisico) {
+
+                $img_icones[$arqFisico->codnome] = $arqFisico->imagem;
+            }
+       
+        }
+  
+        return view('produto_cliente/index', compact('produtoFornecedors', 'img_icones'));
+    }
+
     public function ler($functionid,$titulo,$inclui,$edita,$deleta)
     {
 

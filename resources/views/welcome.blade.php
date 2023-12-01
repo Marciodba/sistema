@@ -857,7 +857,33 @@
                 @endauth
             </div>
         @endif
+{{--teste codigo  --}}
+<ul class="navbar-nav mr-auto">
+                              
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('produtos')}}">Loja <span class="sr-only">(current)</span></a>
+    </li>
 
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Cadastro
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{route('produto.lista')}}">Protudo</a>
+        <a class="dropdown-item" href="{{route('cupom.desconto.listar')}}">Cupom de descomto</a>
+      </div>
+    </li>
+    
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('carrinho.index')}}">Carrinho Compras <span class="sr-only">(current)</span></a>
+        
+    </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{route('compras')}}">Compras <span class="sr-only">(current)</span></a>
+        </li>
+  </ul> 
+ 
+{{--fim teste--}}
         <div class="max-w-7xl mx-auto p-6 lg:p-8">
           
             <div class="flex justify-center">

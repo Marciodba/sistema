@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('audit_logins', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->string('session_name')->nullable();
             $table->string('ip')->nullable();
             $table->string('browser')->nullable();
             $table->string('agent')->nullable();
             $table->dateTime('login_at')->nullable();
             $table->dateTime('logout_at')->nullable();
-            $table->boolean('json_sucessfully')->default(false);
+            $table->boolean('login_successfully')->default(false);
             $table->json('location')->nullable();
             $table->timestamps();
         });

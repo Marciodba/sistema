@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AuditLogin extends Model
 {
+
+    protected $guarded =[];
+
+    protected $casts =[
+        'location' => 'array'
+    ];
   
     public function user(){
         return $this->BelongsTo(User::class);

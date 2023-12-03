@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Listeners\LoginListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -18,7 +19,19 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+
+        Login::class =>[
+            LoginListener::class
+        ],
+        Attempting::class =>[
+            LoginListener::class
+        ],
+        Failed::class =>[
+            LoginListener::class
+        ]
     ];
+
+  
 
     /**
      * Register any events for your application.

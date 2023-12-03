@@ -22,7 +22,7 @@
     'exclude_columns' => null,
     'include_columns' => null,
     'action_icons' => null,
-    'actions_title' => 'ações',
+    'actions_title' => 'actions',
     'column_aliases' => [],
     'searchable' => false,
     'search_placeholder' => 'Search table below...',

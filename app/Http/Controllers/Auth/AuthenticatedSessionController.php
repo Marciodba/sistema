@@ -11,6 +11,7 @@ use App\Providers\RouteServiceProvider;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Controllers\ApuracaoLogUsuarioController;
 
+
 class AuthenticatedSessionController extends Controller
 {
     /**

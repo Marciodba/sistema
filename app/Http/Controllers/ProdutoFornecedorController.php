@@ -85,7 +85,7 @@ class ProdutoFornecedorController extends Controller
             $mostra_coluna =  implode(',',$mostra_coluna);
 
            $produtoFornecedors = ProdutoFornecedor::where('idpessoa',Auth::user()->idpessoa)
-        ->whereRaw(DB::RAW($filtro))->whereRaw(DB::RAW($filtrousuario))->limit(100)->orderBy('dtatualizacao','DESC')->get();
+        ->whereRaw(DB::RAW($filtro))->whereRaw(DB::RAW($filtrousuario))->limit(100)->orderBy('dtatualizacao')->get();
 
 
        

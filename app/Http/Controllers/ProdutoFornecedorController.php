@@ -46,7 +46,7 @@ class ProdutoFornecedorController extends Controller
 
         $produtoFornecedors = ProdutoFornecedor::with(['pessoa', 'produto', 'endereco' => function ($query) {
             $query->whereNotNull(['observacao']);
-        }])->where('padrao', true)->where('idpessoa',$id)->orderBy('dtatualizacao','DESC')->limit(500)->get();
+        }])->where('padrao', true)->where('idpessoa',$id)->orderBy('dtatualizacao','DESC')->limit(10)->get();
         $img_icones = [];
       
         if (!empty($produtoFornecedors[0]) && !empty($produtoFornecedors[0]->pessoa)) {
